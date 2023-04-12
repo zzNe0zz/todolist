@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Home{
+    padding: 60px 120px;
+    height: 100vh;
+    background-color: #dcdfe5;
+}
+.Home-main{
+    border: 1px solid black;
+   border-radius: 30px; 
+    max-height: 500px;  
+   display: flex;
+  
+}
+.Menu{
+    background-color: #1e0059;
+    color: #8a74b8;
+    width: 80px;
+    height: 500px;
+    font-size: 18px;
+    border-top-left-radius:30px ;
+    border-bottom-left-radius:30px ;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.Menu ul{
+    list-style-type: none;
+}
+.Menu li{
+    padding: 10px 0;
+}
+.Header{
+    padding: 10px 30px;
+    background-color: #f2f6fe;
+    border-top-right-radius: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+.Header img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.search{
+    width: 20%;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 5px;
+    transition-duration: 1s;
+}
+.search input{
+    width: 30%;
+    padding: 4px 6px;
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.search:focus-within{
+    width: 40%;
+    transition-duration: 1s;
+}
+.avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.body{
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.card-body{
+    display: grid;
+    grid-template-columns: auto auto ;
+    gap: 10px;
+    min-height:295px ;
+   
+}
+.box-nb{
+    width: 70px;
+    height: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+}
+.body-left{
+    background-color: #ffffff;
+    padding: 10px 10px 0 10px;
+    border-radius: 10px;
+    min-width: 600px;
+    min-height: 310px;
+}
+.info-total{
+    padding:10px 10px 0 10px ;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.card-body img{
+    width: 300px;
+    height: 110px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: fill;
+    opacity: 0.2;
+    
+}
