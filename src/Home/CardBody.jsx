@@ -6,9 +6,11 @@ import { useEffect } from 'react';
 import {useLocation  ,useNavigate} from "react-router-dom";
 import {ssDate} from "../Settings/Function"
 import {  useDispatch,useSelector } from 'react-redux'
-import { updateData } from '../Settings/SliceRedux'
-import {getCookie,fixData,deleData} from "../Settings/Function"
+import { updateData ,dataDrap} from '../Settings/SliceRedux'
+import {getCookie,fixData,deleData,} from "../Settings/Function"
+import { useTranslation } from 'react-i18next';
 function CardBody() {
+    const {t} = useTranslation("card")
     const [dataMap,setDataMap]=useState([])
     const [data,setData] =useState([])
     let   nav = useNavigate()
@@ -84,18 +86,19 @@ function CardBody() {
  await deleData(dataIP.id,token)
       setCount(count+1)
   };
+
     useEffect(() => {
         getAllTask()
     }, [coutData,count])
 
   return (
-    <div style={{position:"relative"}}>
+    <div style={{position:"relative"}} >
            <div className='card-body'>
            {
                 dataMap.map(function(value,index){
                     return(
-                        <div key={value.id}  onClick={()=>{setDataIP(value)}}>
-        <Space direction="vertical" size={12} onClick={()=>{console.log(dataIP);}}>
+                        <div key={value.id}  onClick={()=>{setDataIP(value)}} onDragStart={()=>{dispatch(dataDrap(value));}}  className='card-body-item'>
+        <Space direction="vertical" size={12}>
  
         <Card 
       size="small"
@@ -107,8 +110,9 @@ function CardBody() {
       
       }}
       >
-      <p>Time :{value.attributes.date}</p>
-              <div style={{display:"flex",justifyContent:"space-around"}}>
+      <p>{t("date")} : {value.attributes.date?value.attributes.date.split("T")[0]:"Null"}</p>
+      <p>{t("time")} : {value.attributes.date?value.attributes.date.split("T")[1].slice(0,8):"Null"} </p>
+          <div style={{display:"flex",justifyContent:"space-around"}}>
               <Popconfirm
               title="Delete the task"
               description="Are you sure to delete this task?"
@@ -116,10 +120,10 @@ function CardBody() {
               okText="Yes"
               cancelText="No"
           >
-            <Button type="link" danger  style={{border:"1px solid #ff4d4f"}}>Delete</Button>
+            <Button type="link" danger  style={{border:"1px solid #ff4d4f"}}>{t("delete")}</Button>
           </Popconfirm>
 
-        <Button  onClick={()=>{success(value)}} type="text" style={{color:"#95e077",border:"1px solid #95e077"}} ><span >Complete</span></Button></div>
+        <Button  onClick={()=>{success(value)}} type="text" style={{color:"#95e077",border:"1px solid #95e077"}} ><span >{t("complete")}</span></Button></div>
        {value.attributes.complete?
        <img src="https://media.istockphoto.com/id/1180422298/vi/vec-to/nhi%E1%BB%87m-v%E1%BB%A5-%C4%91%C3%A3-ho%C3%A0n-th%C3%A0nh-d%E1%BA%A5u-hi%E1%BB%87u-nhi%E1%BB%87m-v%E1%BB%A5-ho%C3%A0n-th%C3%A0nh-nh%C3%A3n-d%C3%A1n-ruy-b%C4%83ng-tr%C3%B2n-m%C3%A0u-%C4%91%E1%BB%8F-%C4%91en.jpg?s=1024x1024&w=is&k=20&c=J-R2yHtvsEVeDZ9DGVC_590pVqgaiphAWhVDMQ1UIhs=" alt="" />
        :ssDate(value.attributes.date)? 

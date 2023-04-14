@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     data: [],
     count :0,
-    
+    dataDrap:""
   }
   export const getData = createSlice({
     name: 'setData',
@@ -14,11 +14,14 @@ const initialState = {
       },
       updateCount:(state)=>{
         state.count = state.count + 1
+      },
+      dataDrap:(state,actions)=>{
+        state.dataDrap = actions.payload
       }
     },
   })
   
-  export const { updateData,updateCount } = getData.actions
+  export const { updateData,updateCount,dataDrap } = getData.actions
   
   export default getData.reducer
   

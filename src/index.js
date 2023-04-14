@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './Settings/Store'
 import { Provider } from 'react-redux'
-
+import "./Settings/Translate/i18next"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

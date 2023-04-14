@@ -5,7 +5,7 @@ import Siggup from './Auth/Siggup';
 import Home from './Home/Home';
 import 'antd/dist/reset.css';
 import BodySearch from './Home/BodySearch';
-// import CardBody from './Home/CardBody';
+import './Settings/Translate/i18next';
 import PrivateRouter from './Settings/PrivateRouter';
 import CheckUser from './Settings/CheckUser';
 import { lazy,Suspense } from 'react';

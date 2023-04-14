@@ -4,7 +4,6 @@ function ssDate(dateTask){
     let date = new Date()
     let kq1=date.getTime()
     let date2 = new Date(dateTask).getTime()
-   
      if(date2 < kq1){
        return true
      }
